@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>PinPin</title>
+	<link rel ="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel ="stylesheet" href="/stylesheets/style.css" />
+    <link rel ="stylesheet" href="/stylesheets/bootstrap-iso.css" />
+    <link rel ="stylesheet" href="/stylesheets/ng-img-crop.css" />
+
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/ui-bootstrap-tpls-1.3.3.min.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/ng-file-upload-shim.min.js"></script>
+    <script src="/javascripts/ng-file-upload.min.js"></script>
+    <script src="/javascripts/ng-img-crop.js"></script>
+    <script src="/javascripts/angular-aria.js"></script> 
+    <script src="/javascripts/angular-animate.js"></script> 
+    <script src="/javascripts/angular-material.js"></script> 
+    <script src="/javascripts/angular-route.min.js"></script>
+</head>
+<style>
+.menu1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.menu1_link {
+    float: right;
+    border-left:1px solid #bbb;
+    
+}
+
+.menu1_link:last-child {
+    border-right: none;
+}
+
+.menu1_link a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu1_link a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.menu2{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+    background-color: #696969;    
+	height: 25px; 
+}
+.menu2_link{
+	display: inline;
+	border-right: 1px solid #bbb;
+	line-height: 25px;  
+}
+
+.menu2_link a {
+    /*display: block;*/
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+
+}
+
+.menu2_link a:hover:not(.active) {
+    background-color: #111;
+}
+#logo {
+	float:left;
+	font-size: 1.2em;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+
+.table-link{
+    text-decoration: underline;
+}
+.table-link a{
+    color:#079CBA;
+}
+.table-link a:hover {
+    color: white;
+}
+/*.form-group{
+    padding-left: 38%;
+    width: 100px;
+
+}*/
+.page-header{
+    text-align: center;
+}
+
+#brand-image{
+    height: 45px;
+    padding: 4px;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+#wrapper{
+    min-height:95%;
+    position:relative;
+    margin-bottom: -50px;
+    /*background-color: #efefef;*/
+
+    /*background-color: #006699;*/
+
+    background-color: #4d4d4d;
+    
+    
+    /*background-image: url("/images/landing5.jpg");*/
+    /*background-image: url("/images/landing6.jpg");*/
+    background-size: 100%;
+}
+#header{
+    
+}
+#content{
+    padding-bottom:50px; /* Height of the footer element */
+    margin-bottom: 50px;
+}
+#footer{
+    width:100%;
+    height:50px;
+    position:bottom;
+    margin-top: -50px; 
+    bottom:0;
+    left:0;
+    background-color: #efefef;
+    text-align: center;
+    /*background:#999;*/
+}
+#page-body{
+    
+}
+.drop-box-container{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    display: table;
+}
+.drop-box{
+    /*background-image: url("/images/user4.png");*/
+    background-size: 100%;
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 150px;
+    text-align: center;
+    padding: 25px;
+    margin: 10px;
+}
+.dragover{
+    border: 5px dashed blue;
+}
+.text-bold{
+    font-weight: bold;
+}
+.label-badge {
+    border-radius: 1em;
+}
+.label-badge-left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.label-badge-right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #efefef;
+    color: #333;
+}
+
+html, body {
+height: 100%;
+}
+</style>
+<body>
+    <div id="wrapper">
+        <div id="header">
+        	<ul class="menu1">
+                <li class= "navbar-left">
+                    {{#if user}}
+                        <a href="/users/home">
+                            <h3>PinPin</h3>
+                        </a>
+                    {{else}}
+                        <a href="/">
+                            <h3>PinPin</h3>
+                        </a>
+                    {{/if}}
+                </li>
+                <li class= "navbar-left" style="margin-left: 40%;">
+                </li>
+                {{#if user}}
+                    <li class="menu1_link"><a href="/users/logout">
+                        <span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                {{else}}
+            	    <li class="menu1_link"><a href="/users/login">
+                        <span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+            	    <li class="menu1_link"><a href="/users/register">
+                        <span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                {{/if}}
+        	</ul>
+            <div id="submenu">
+                {{#if user}}
+                <ul class="menu2"> 
+                    <li class="menu2_link"><a href="/users/home">Home</a></li>
+                </ul>
+                {{/if}}
+            </div>
+            <div class="col-lg-12">
+                  {{#if success_msg}}
+                    <div class="alert alert-success">{{success_msg}}</div>
+                  {{/if}}
+
+                  {{#if error_msg}}
+                    <div class="alert alert-danger">{{error_msg}}</div>
+                  {{/if}}
+
+                  {{#if info_msg}}
+                    <div class="alert alert-info">{{info_msg}}</div>
+                  {{/if}}
+
+                  {{#if error}}
+                    <div class="alert alert-danger">{{error}}</div>
+                  {{/if}}
+                  
+                  </div>
+            </div>
+        <div id="content">
+          <div id="page-body">
+            {{{body}}}
+          </div>
+        </div>
+   
+    </div>  
+    
+    <div id="footer">
+        <p>&copy; PinPin, Inc. | <a href="#">About</a> | 
+        <a href="#">Team |</a></p>
+    </div>   
+</body>
+</html>

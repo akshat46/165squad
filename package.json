@@ -1,0 +1,40 @@
+{
+  "name": "maxrate",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "async": "^2.0.1",
+    "bcryptjs": "*",
+    "body-parser": "~1.15.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.14.1",
+    "express-validator": "^2.20.10",
+    "hbs": "~4.0.0",
+    "helper-link-to": "^0.1.4",
+    "jquery": "^3.1.1",
+    "morgan": "~1.7.0",
+    "mysql": "^2.11.1",
+    "mysql-activerecord": "^0.8.6",
+    "ng-file-upload": "^12.2.13",
+    "ng-img-crop": "^0.2.0",
+    "passport": "^0.3.2",
+    "passport-http": "*",
+    "passport-local": "*",
+    "promise": "^7.1.1",
+    "request": "^2.78.0",
+    "sequelize": "^3.24.3",
+    "serve-favicon": "~2.3.0"
+  }
+}
